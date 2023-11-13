@@ -44,12 +44,15 @@ def on_message(client, message):
                     text="دانلود با موفقیت انجام شد. در حال ارسال...",
                     reply_to_message_id=message.id
                 )
+                async def progress(current, total):
+                    print(f"{current * 100 / total:.1f}%")
 
                 # Send the downloaded file
                 client.send_document(
                     chat_id=message.chat.id,
                     document=downloaded_file,
                     caption="خدمت شما!",
+                    progress=progress,
                     reply_to_message_id=message.id
                 )
 

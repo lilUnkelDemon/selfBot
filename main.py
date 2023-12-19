@@ -103,7 +103,13 @@ def on_message(client, message):
                     )
                     time.sleep(3)
 
-                downloaded_file = wget.download(file_url, bar=progress_callback)
+                def progress_callbackk(current, total, width=80):
+                    percent = current * 100 / total
+                    bar = progress_bar(current, total, width)
+                    message_text = f"در حال دانلود... {percent:.1f}%"
+                    print(message_text)
+
+                downloaded_file = wget.download(file_url, bar=progress_callbackk)
 
 
 

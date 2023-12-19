@@ -101,13 +101,10 @@ def on_message(client, message):
                         message_id=wait_message.id,
                         text=message_text
                     )
-                    time.sleep(10)
+                    time.sleep(3)
 
                 downloaded_file = wget.download(file_url, bar=progress_callback)
 
-
-                # downloaded_file = wget.download(file_url, bar=wget.bar_thermometer)
-                aa = 0.0
 
 
                 # Send "Download completed" message with progress
@@ -123,7 +120,7 @@ def on_message(client, message):
                         message_id=wait_message.id,
                         text=f"دانلود با موفقیت انجام شد. در حال ارسال... {percent}"
                     )
-                    time.sleep(10)
+                    time.sleep(3)
                 
 
                 # Send the downloaded file

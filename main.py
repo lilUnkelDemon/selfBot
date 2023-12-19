@@ -2,6 +2,7 @@ import re
 import wget
 import os
 from pyrogram import Client, filters
+import time
 
 app = Client("herrTeufel", api_id=29238210, api_hash='fa0dc3269a82546efd021964cd2c7bda')
 
@@ -100,6 +101,7 @@ def on_message(client, message):
                         message_id=wait_message.id,
                         text=message_text
                     )
+                    time.sleep(10)
 
                 downloaded_file = wget.download(file_url, bar=progress_callback)
 
@@ -121,7 +123,7 @@ def on_message(client, message):
                         message_id=wait_message.id,
                         text=f"دانلود با موفقیت انجام شد. در حال ارسال... {percent}"
                     )
-                    
+                    time.sleep(10)
                 
 
                 # Send the downloaded file
